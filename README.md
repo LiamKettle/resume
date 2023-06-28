@@ -6,4 +6,4 @@ This resume was created using the pagedown package in combination with Nick Stra
 - Removed figure from top left corner
 - Added more sections to the sidebar (Statistical Analysis & Coding/Tools)
 - Removed "skill bar" from sidebar
-- Altered formats for specific content (Selected Publications & Proceedings; Selected Awards
+- Altered formats for specific content (Selected Publications & Proceedings; Selected Awards)
