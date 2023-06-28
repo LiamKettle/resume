@@ -70,6 +70,8 @@ CV %>% print_coding_language()
 
 Made with the R packages [**pagedown**](https://github.com/rstudio/pagedown) and [***datadrivencv***](https://github.com/nstrayer/datadrivencv).
 
+The source code is available on [github.com/LiamKettle/resume](https://github.com/LiamKettle/resume).
+
 Last updated on `r Sys.Date()`.
 
 # Main
