@@ -41,21 +41,15 @@ create_CV_object <-  function(data_location,
       googlesheets4::read_sheet(data_location, sheet = sheet_id, skip = 1, col_types = "c")
     }
     cv$entries_data  <- read_gsheet(sheet_id = "entries")
-    cv$skills        <- read_gsheet(sheet_id = "language_skills")
     cv$text_blocks   <- read_gsheet(sheet_id = "text_blocks")
     cv$contact_info  <- read_gsheet(sheet_id = "contact_info")
-    cv$statistical_methods  <- read_gsheet(sheet_id = "statistical_methods")
-    cv$research_methods  <- read_gsheet(sheet_id = "research_methods")
-    cv$coding_language  <- read_gsheet(sheet_id = "coding_language")
+    cv$sidebar_skills  <- read_gsheet(sheet_id = "sidebar_skills")
   } else {
     # Want to go old-school with csvs?
     cv$entries_data <- readr::read_csv(paste0(data_location, "entries.csv"), skip = 1)
-    cv$skills       <- readr::read_csv(paste0(data_location, "language_skills.csv"), skip = 1)
     cv$text_blocks  <- readr::read_csv(paste0(data_location, "text_blocks.csv"), skip = 1)
     cv$contact_info <- readr::read_csv(paste0(data_location, "contact_info.csv"), skip = 1)
-    cv$statistical_methods <- readr::read_csv(paste0(data_location, "statistical_methods.csv"), skip = 1)
-    cv$research_methods <- readr::read_csv(paste0(data_location, "research_methods.csv"), skip = 1)
-    cv$coding_language <- readr::read_csv(paste0(data_location, "coding_language.csv"), skip = 1)
+    cv$sidebar_skills <- readr::read_csv(paste0(data_location, "sidebar_skills.csv"), skip = 1)
   }
 
 
@@ -271,52 +265,6 @@ print_text_block <- function(cv, label){
 
 
 
-#' @description Construct a bar chart of skills
-#' @param out_of The relative maximum for skills. Used to set what a fully filled in skill bar is.
-print_skill_bars <- function(cv, out_of = 5, bar_color = "#969696", bar_background = "#d9d9d9", glue_template = "default"){
-
-  if(glue_template == "default"){
-    glue_template <- "
-<div
-  class = 'skill-bar'
-  style = \"background:linear-gradient(to right,
-                                      {bar_color} {width_percent}%,
-                                      {bar_background} {width_percent}% 100%)\"
->{skill}</div>"
-  }
-  cv$skills %>%
-    dplyr::mutate(width_percent = round(100*as.numeric(level)/out_of)) %>%
-    glue::glue_data(glue_template) %>%
-    print()
-
-  invisible(cv)
-}
-
-
-
-#' @description List of all links in document labeled by their superscript integer.
-print_links <- function(cv) {
-  n_links <- length(cv$links)
-  if (n_links > 0) {
-    cat("
-Links {data-icon=link}
---------------------------------------------------------------------------------
-
-<br>
-
-
-")
-
-    purrr::walk2(cv$links, 1:n_links, function(link, index) {
-      print(glue::glue('{index}. {link}'))
-    })
-  }
-
-  invisible(cv)
-}
-
-
-
 #' @description Contact information section with icons
 print_contact_info <- function(cv){
   glue::glue_data(
@@ -327,33 +275,18 @@ print_contact_info <- function(cv){
   invisible(cv)
 }
 
-#' @description Statistical functions
-print_statistical_methods <- function(cv){
-  glue::glue_data(
-    cv$statistical_methods,
-    "- {stats}"
-  ) %>% print()
+#' @description Take a position data frame and the section id desired and prints the aside section to markdown.
+#' @param section_id ID of the sidebar_skills section to be printed as encoded by the `section` column of the `sidebar_skills` table
+print_aside_section <- function(cv, section_id){
+
+  section_data <- dplyr::filter(cv$sidebar_skills, section == section_id) %>%
+    dplyr::filter(in_resume == "TRUE")
+
+    glue::glue_data(
+      section_data,
+      "- {value}"
+    ) %>% print()
   
   invisible(cv)
-}
-
-#' @description Coding language
-print_coding_language <- function(cv){
-  glue::glue_data(
-    cv$coding_language,
-    "- {language}"
-  ) %>% print()
   
-  invisible(cv)
 }
-
-#' @description UX Research Methods
-print_research_methods <- function(cv){
-  glue::glue_data(
-    cv$research_methods,
-    "- {method}"
-  ) %>% print()
-  
-  invisible(cv)
-}
-

@@ -51,19 +51,19 @@ CV %>% print_contact_info()
 ## UX Methods {#methods}
 
 ```{r}
-CV %>% print_research_methods()
+CV %>% print_aside_section('research')
 ```
 
-## Statistical Analyses {#skills}
+## Statistical Analyses {#stats}
 
 ```{r}
-CV %>% print_statistical_methods()
+CV %>% print_aside_section('stats')
 ```
 
 ## Coding / Tools {#code}
 
 ```{r}
-CV %>% print_coding_language()
+CV %>% print_aside_section('code')
 ```
 
 ## Disclaimer {#disclaimer}
@@ -117,8 +117,4 @@ CV %<>% print_minor_section('award')
 
 ```{r}
 CV %<>% print_section('service')
-```
-
-```{r}
-CV %<>% print_links()
 ```
