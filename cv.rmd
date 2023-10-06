@@ -28,6 +28,7 @@ CV <- create_CV_object(
 
 ```
 
+
 ```{r}
 # When in pdf export mode the little dots are unaligned, so fix that with some conditional CSS.
 if(params$pdf_mode) {
@@ -38,6 +39,8 @@ if(params$pdf_mode) {
 }
 </style>")
 }
+
+
 ```
 
 # Aside
@@ -81,6 +84,7 @@ Last updated on `r Sys.Date()`.
 ```{r}
 # Note the special double pipe so we modify the CV object in place
 CV %<>% print_text_block("intro") 
+
 ```
 
 ## Education {data-icon="graduation-cap" data-concise="true"}
