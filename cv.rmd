@@ -95,11 +95,11 @@ CV %<>% print_section('education')
 CV %<>% print_section('research_positions')
 ```
 
-## Teaching Experience {data-icon="chalkboard-teacher"}
+<!-- ## Teaching Experience {data-icon="chalkboard-teacher"} -->
 
-```{r}
-CV %<>% print_section('teaching_positions')
-```
+<!-- ```{r} -->
+<!-- CV %<>% print_section('teaching_positions') -->
+<!-- ``` -->
 
 ## Selected Publications & Proceedings {data-icon="book"}
 
