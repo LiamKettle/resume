@@ -105,13 +105,13 @@ CV %<>% print_section('research_positions')
 CV %<>% print_section('teaching_positions')
 ```
 
-## Selected Publications & Proceedings {data-icon="book"}
+## Select Publications {data-icon="book"}
 
 ```{r}
 CV %<>% print_academia_section('academic_articles')
 ```
 
-## Selected Awards {data-icon="award"}
+## Select Awards {data-icon="award"}
 
 ```{r}
 CV %<>% print_minor_section('award')
