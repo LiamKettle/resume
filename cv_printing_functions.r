@@ -209,10 +209,7 @@ print_section <- function(cv, section_id, glue_template = "default"){
 print_academia_section <- function(cv, section_id){
 
   section_data <- dplyr::filter(cv$entries_data, section == section_id) %>%
-    dplyr::filter(in_resume == "TRUE") %>%
-    dplyr::mutate(
-      institution = ifelse(institution == "NULL", NA, institution)
-    )
+    dplyr::filter(in_resume == "TRUE")
   
   section_data %>% 
     glue::glue_data(
