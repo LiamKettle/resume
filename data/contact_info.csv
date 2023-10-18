@@ -1,7 +1,7 @@
 Id of contact section,Icon used from font-awesome 4 to label this contact section,The actual value written for the contact entry
 loc,icon,contact
-email,envelope,lkettle@gmu.edu 
+email,envelope,lkettle@gmu.edu
 twitter,phone,571-253-5249
-website,link,liamkettle.com
-linkedin,linkedin,linkedin.com/in/liam-kettle
-github,github,github.com/LiamKettle
+website,link,[liamkettle.com](https://www.liamkettle.com/)
+linkedin,linkedin,[linkedin.com/in/liam-kettle](https://www.linkedin.com/in/liam-kettle/)
+github,github,[github.com/LiamKettle](https://github.com/LiamKettle)
