@@ -5,10 +5,10 @@ code,Qualtrics,TRUE
 code,R,TRUE
 code,SPSS,TRUE
 code,SQL,TRUE
-research,**User interviews**,TRUE
-research,**User testing**,TRUE
-research,**Usability evaluations**,TRUE
-research,"**Survey development, design, distribution, & analysis**",TRUE
+research,User interviews,TRUE
+research,User testing,TRUE
+research,Usability evaluations,TRUE
+research,"Survey development, design, distribution, & analysis",TRUE
 research,Competitor analysis,TRUE
 research,Data visualization,TRUE
 research,Empathy Map,TRUE
