@@ -7,7 +7,7 @@ params:
     value: true
 output:
   pagedown::html_resume:
-    css: ['dd_cv.css', 'resume']
+    css: ['dd_cv-no-sidebar.css', 'resume']
     self_contained: true
 ---
 
@@ -75,7 +75,7 @@ Made with the R packages [**pagedown**](https://github.com/rstudio/pagedown) and
 
 The source code is available on [github.com/LiamKettle/resume](https://github.com/LiamKettle/resume).
 
-Last updated on `r Sys.Date()`.
+<!-- Last updated on `r Sys.Date()`. -->
 
 # Main
 
@@ -87,17 +87,22 @@ CV %<>% print_text_block("intro")
 
 ```
 
+## Education {data-icon="graduation-cap" data-concise="true"}
+
+```{r}
+CV %<>% print_section('education')
+```
+
+
 ## Research Experience {data-icon="laptop"}
 
 ```{r}
 CV %<>% print_section('research_positions')
 ```
 
-## Education {data-icon="graduation-cap" data-concise="true"}
 
-```{r}
-CV %<>% print_section('education')
-```
+
+
 
 <!-- ## Teaching Experience {data-icon="chalkboard-teacher"} -->
 
@@ -105,11 +110,18 @@ CV %<>% print_section('education')
 <!-- CV %<>% print_section('teaching_positions') -->
 <!-- ``` -->
 
-## Select Publications {data-icon="book"}
+
+## Select Publications {data-icon="book" data-concise="true"}
 
 ```{r}
 CV %<>% print_academia_section('academic_articles')
 ```
+
+<!-- ## Conference Proceedings {data-icon="book-open-reader" data-concise="true"} -->
+
+<!-- ```{r} -->
+<!-- CV %<>% print_academia_section('conference') -->
+<!-- ``` -->
 
 ## Select Awards {data-icon="award"}
 
@@ -122,3 +134,9 @@ CV %<>% print_minor_section('award')
 ```{r}
 CV %<>% print_section('service')
 ```
+
+<!-- ## Professional Memberships {data-icon="users"} -->
+
+<!-- ```{r} -->
+<!-- CV %<>% print_section('memberships') -->
+<!-- ``` -->
